@@ -13,7 +13,7 @@ This document is about SMAPI itself; see also [mod build package](mod-package.md
   * [Compile flags](#compile-flags)
 * [Compile from source code](#compile-from-source-code)
   * [Main project](#main-project)
-  * [Custom Harmony build](#custom-harmony-build)
+  * [Custom dependencies](#custom-dependencies)
 * [Prepare a release](#prepare-a-release)
   * [On any platform](#on-any-platform)
   * [On Windows](#on-windows)
@@ -77,10 +77,10 @@ Rebuilding the solution in debug mode will copy the SMAPI files into your game f
 the `SMAPI` project with debugging from Visual Studio or Rider should launch SMAPI with the
 debugger attached, so you can intercept errors and step through the code being executed.
 
-### Custom Harmony build
-SMAPI uses [a custom build of Harmony 2.2.2](https://github.com/Pathoschild/Harmony#readme), which
-is included in the `build` folder. To use a different build, just replace `0Harmony.dll` in that
-folder before compiling.
+### Custom dependencies
+SMAPI uses custom builds of [Harmony 2.2.2](https://github.com/Pathoschild/Harmony#readme) and
+[TMXTile 1.5.9](https://github.com/Pathoschild/TMXTile#readme), stored in the `build` folder. To
+use a different build, just replace their files in that folder before compiling.
 
 ## Prepare a release
 ### On any platform
