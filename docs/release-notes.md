@@ -5,12 +5,16 @@
 * For players:
   * Updated for Stardew Valley 1.6.
   * Improved translations. Thanks to ChulkyBow (updated Ukrainian)!
-  * Fixed `player_add` console command's handling of Journal Scraps and Secret Notes.
-  * Fixed `set_farm_type` console command not updating warps if they moved.
   * Improved [command-line arguments](technical/smapi.md#command-line-arguments) on Linux/macOS:
     * Added `--use-current-shell` to avoid opening a separate terminal window.
     * Fixed `--no-terminal` still opening a terminal window, even if nothing is logged to it (thanks to Ryhon0!).
   * Fixed warning text when a mod causes an asset load conflict with itself.
+
+* For the Console Commands mod:
+  * Rewrote `player_add` to support the game's new custom items system.
+  * Fixed `player_add` console command's handling of Journal Scraps and Secret Notes.
+  * Fixed `set_farm_type` console command not updating warps if they moved.
+  * Removed `list_item_types` (no longer needed) and `player_setimmunity` (broke in 1.6 and rarely used).
   * Removed `player_setimmunity` console command (broke in 1.6 and rarely used).
 
 * For mod authors:
