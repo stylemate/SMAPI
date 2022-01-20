@@ -33,15 +33,10 @@ namespace StardewModdingAPI.Mods.ErrorHandler
             // apply patches
             HarmonyPatcher.Apply(this.ModManifest.UniqueID, this.Monitor,
                 // game patches
-                new DialoguePatcher(monitorForGame, this.Helper.Reflection),
-                new EventPatcher(monitorForGame),
                 new GameLocationPatcher(monitorForGame),
-                new IClickableMenuPatcher(),
                 new NpcPatcher(monitorForGame),
-                new ObjectPatcher(),
                 new SaveGamePatcher(this.Monitor, this.OnSaveContentRemoved),
-                new SpriteBatchPatcher(),
-                new UtilityPatcher()
+                new SpriteBatchPatcher()
 
 #if SMAPI_DEPRECATED
                 // mod patches
