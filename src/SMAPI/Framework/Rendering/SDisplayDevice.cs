@@ -56,7 +56,7 @@ namespace StardewModdingAPI.Framework.Rendering
         /// <param name="tile">The tile being drawn.</param>
         private SpriteEffects GetSpriteEffects(Tile tile)
         {
-            return tile.Properties.TryGetValue("@Flip", out PropertyValue? propertyValue) && int.TryParse(propertyValue, out int value)
+            return tile.Properties.TryGetValue("@Flip", out PropertyValue propertyValue) && int.TryParse(propertyValue, out int value)
                 ? (SpriteEffects)value
                 : SpriteEffects.None;
         }
@@ -65,7 +65,7 @@ namespace StardewModdingAPI.Framework.Rendering
         /// <param name="tile">The tile being drawn.</param>
         private float GetRotation(Tile tile)
         {
-            if (!tile.Properties.TryGetValue("@Rotation", out PropertyValue? propertyValue) || !int.TryParse(propertyValue, out int value))
+            if (!tile.Properties.TryGetValue("@Rotation", out PropertyValue propertyValue) || !int.TryParse(propertyValue, out int value))
                 return 0;
 
             value %= 360;
