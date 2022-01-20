@@ -10,6 +10,8 @@
 ## Upcoming release for Stardew Valley 1.6
 * For players:
   * Updated for Stardew Valley 1.6.
+  * Rewrote `player_add` to support the game's new custom items system.
+  * Removed `list_item_types` (no longer needed) and `player_setimmunity` (broke in 1.6 and rarely used).
   * Removed `player_setimmunity` console command (broke in 1.6 and rarely used).
 
 * For mod authors:
