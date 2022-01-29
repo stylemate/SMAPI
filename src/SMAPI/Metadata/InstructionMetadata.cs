@@ -36,6 +36,10 @@ namespace StardewModdingAPI.Metadata
             // rewrite for crossplatform compatibility
             if (rewriteMods)
             {
+                // rewrite for Stardew Valley 1.6
+                yield return new FieldReplaceRewriter()
+                    .AddField("StardewValley.Locations.BuildableGameLocation", "buildings", typeof(GameLocation), nameof(GameLocation.buildings));
+
                 // rewrite for Stardew Valley 1.5
                 yield return new FieldReplaceRewriter()
                     .AddField(typeof(DecoratableLocation), "furniture", typeof(GameLocation), nameof(GameLocation.furniture))

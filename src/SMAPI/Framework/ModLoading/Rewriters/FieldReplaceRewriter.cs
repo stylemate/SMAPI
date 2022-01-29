@@ -31,16 +31,26 @@ namespace StardewModdingAPI.Framework.ModLoading.Rewriters
         /// <param name="toFieldName">The new field name to reference.</param>
         public FieldReplaceRewriter AddField(Type fromType, string fromFieldName, Type toType, string toFieldName)
         {
+            return this.AddField(
+                fromType?.FullName!, // will be validated in the called method
+                fromFieldName,
+                toType,
+                toFieldName
+            );
+        }
+
+        /// <summary>Add a field to replace.</summary>
+        /// <param name="fromTypeFullName">The full name of the type whose field to rewrite.</param>
+        /// <param name="fromFieldName">The field name to rewrite.</param>
+        /// <param name="toType">The new type which will have the field.</param>
+        /// <param name="toFieldName">The new field name to reference.</param>
+        public FieldReplaceRewriter AddField(string fromTypeFullName, string fromFieldName, Type toType, string toFieldName)
+        {
             // validate parameters
-            if (fromType == null)
+            if (string.IsNullOrWhiteSpace(fromTypeFullName))
                 throw new InvalidOperationException("Can't replace a field on a null source type.");
             if (toType == null)
                 throw new InvalidOperationException("Can't replace a field on a null target type.");
-
-            // get full type name
-            string? fromTypeName = fromType.FullName;
-            if (fromTypeName == null)
-                throw new InvalidOperationException($"Can't replace field for invalid type reference {toType}.");
 
             // get target field
             FieldInfo? toField = toType.GetField(toFieldName);
@@ -48,8 +58,8 @@ namespace StardewModdingAPI.Framework.ModLoading.Rewriters
                 throw new InvalidOperationException($"The {toType.FullName} class doesn't have a {toFieldName} field.");
 
             // add mapping
-            if (!this.FieldMaps.TryGetValue(fromTypeName, out var fieldMap))
-                this.FieldMaps[fromTypeName] = fieldMap = new();
+            if (!this.FieldMaps.TryGetValue(fromTypeFullName, out var fieldMap))
+                this.FieldMaps[fromTypeFullName] = fieldMap = new();
             fieldMap[fromFieldName] = toField;
 
             return this;
