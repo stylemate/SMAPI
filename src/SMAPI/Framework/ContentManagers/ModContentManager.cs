@@ -74,28 +74,15 @@ namespace StardewModdingAPI.Framework.ContentManagers
         }
 
         /// <inheritdoc />
-        public override T Load<T>(string assetName)
-        {
-            return this.Load<T>(assetName, this.DefaultLanguage);
-        }
-
-        /// <inheritdoc />
-        public override T Load<T>(string assetName, LanguageCode language)
-        {
-            IAssetName parsedName = this.Coordinator.ParseAssetName(assetName);
-            return this.Load<T>(parsedName, language, useCache: false);
-        }
-
-        /// <inheritdoc />
         public override T Load<T>(IAssetName assetName, LanguageCode language, bool useCache)
         {
-            // disable caching
+            //
+            // Note: caching is ignored for mod content.
             // This is necessary to avoid assets being shared between content managers, which can
             // cause changes to an asset through one content manager affecting the same asset in
             // others (or even fresh content managers). See https://www.patreon.com/posts/27247161
             // for more background info.
-            if (useCache)
-                throw new InvalidOperationException("Mod content managers don't support asset caching.");
+            //
 
             // disable language handling
             // Mod files don't support automatic translation logic, so this should never happen.

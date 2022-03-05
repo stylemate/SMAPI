@@ -5,11 +5,13 @@ using System.IO;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using StardewModdingAPI.Framework.Content;
 using StardewModdingAPI.Framework.ContentManagers;
 using StardewModdingAPI.Framework.Reflection;
 using StardewModdingAPI.Internal;
 using StardewValley;
 using StardewValley.Buildings;
+using StardewValley.GameData;
 using StardewValley.GameData.Movies;
 using StardewValley.Locations;
 using StardewValley.TerrainFeatures;
@@ -130,14 +132,16 @@ namespace StardewModdingAPI.Metadata
             /****
             ** Update textures in-place
             ****/
-            Lazy<Texture2D> newTexture = new(() => this.DisposableContentManager.Load<Texture2D>(assetName.BaseName, language, useCache: false));
+            IAssetName baseAssetName = AssetName.Parse(assetName.BaseName, _ => this.DisposableContentManager.Language);
+
+            Lazy<Texture2D> newTexture = new(() => this.DisposableContentManager.Load<Texture2D>(baseAssetName, language, useCache: false));
             bool changed = false;
             foreach (IContentManager contentManager in contentManagers)
             {
-                if (contentManager.IsLoaded(assetName.BaseName, language))
+                if (contentManager.IsLoaded(baseAssetName, language))
                 {
                     changed = true;
-                    Texture2D texture = contentManager.Load<Texture2D>(assetName.BaseName, language, useCache: true);
+                    Texture2D texture = contentManager.Load<Texture2D>(baseAssetName, language, useCache: true);
                     texture.CopyFromTexture(newTexture.Value);
                 }
             }

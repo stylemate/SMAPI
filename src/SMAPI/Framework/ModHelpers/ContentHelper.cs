@@ -97,7 +97,7 @@ namespace StardewModdingAPI.Framework.ModHelpers
                         throw new SContentLoadException($"{this.ModName} failed loading content asset '{key}' from {source}: unknown content source '{source}'.");
                 }
             }
-            catch (Exception ex) when (!(ex is SContentLoadException))
+            catch (Exception ex) when (ex is not SContentLoadException)
             {
                 throw new SContentLoadException($"{this.ModName} failed loading content asset '{key}' from {source}.", ex);
             }

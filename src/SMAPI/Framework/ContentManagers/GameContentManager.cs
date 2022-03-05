@@ -60,16 +60,14 @@ namespace StardewModdingAPI.Framework.ContentManagers
         {
             this.OnLoadingFirstAsset = onLoadingFirstAsset;
             this.OnAssetLoaded = onAssetLoaded;
+
+            this.CheckGameFolderForAssetExists = true;
         }
 
         /// <inheritdoc />
         public override bool DoesAssetExist(IAssetName assetName)
         {
             if (base.DoesAssetExist(assetName))
-                return true;
-
-            // vanilla asset
-            if (File.Exists(Path.Combine(this.RootDirectory, $"{assetName.Name}.xnb")))
                 return true;
 
             // managed asset
