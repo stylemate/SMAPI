@@ -17,7 +17,7 @@ namespace StardewModdingAPI.Mods.ConsoleCommands.Framework.Commands.World
         private readonly string[] ValidTypes = { "crops", "debris", "fruit-trees", "furniture", "grass", "trees", "removable", "everything" };
 
         /// <summary>The resource clump IDs to consider debris.</summary>
-        private readonly int[] DebrisClumps = { ResourceClump.stumpIndex, ResourceClump.hollowLogIndex, ResourceClump.meteoriteIndex, ResourceClump.boulderIndex };
+        private readonly string[] DebrisClumps = { ResourceClump.stumpIndex, ResourceClump.hollowLogIndex, ResourceClump.meteoriteIndex, ResourceClump.boulderIndex };
 
 
         /*********
@@ -113,7 +113,7 @@ namespace StardewModdingAPI.Mods.ConsoleCommands.Framework.Commands.World
 
                 case "furniture":
                     {
-                        int removed = this.RemoveFurniture(location, furniture => true);
+                        int removed = this.RemoveFurniture(location, _ => true);
                         monitor.Log($"Done! Removed {removed} entities from {location.Name}.", LogLevel.Info);
                         break;
                     }
@@ -137,11 +137,11 @@ namespace StardewModdingAPI.Mods.ConsoleCommands.Framework.Commands.World
                     {
                         bool everything = type == "everything";
                         int removed =
-                            this.RemoveFurniture(location, p => true)
-                            + this.RemoveObjects(location, p => true)
-                            + this.RemoveTerrainFeatures(location, p => true)
-                            + this.RemoveLargeTerrainFeatures(location, p => everything || !(p is Bush bush) || bush.isDestroyable(location, p.currentTileLocation))
-                            + this.RemoveResourceClumps(location, p => true);
+                            this.RemoveFurniture(location, _ => true)
+                            + this.RemoveObjects(location, _ => true)
+                            + this.RemoveTerrainFeatures(location, _ => true)
+                            + this.RemoveLargeTerrainFeatures(location, p => everything || p is not Bush bush || bush.isDestroyable(location, p.currentTileLocation))
+                            + this.RemoveResourceClumps(location, _ => true);
                         monitor.Log($"Done! Removed {removed} entities from {location.Name}.", LogLevel.Info);
                         break;
                     }
