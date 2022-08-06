@@ -13,9 +13,11 @@
   * Rewrote `player_add` to support the game's new custom items system.
   * Removed `list_item_types` (no longer needed) and `player_setimmunity` (broke in 1.6 and rarely used).
   * Removed `player_setimmunity` console command (broke in 1.6 and rarely used).
+  * Improved performance.
 
 * For mod authors:
   * Updated to .NET 6.
+  * SMAPI no longer intercepts output written to the console. Mods which directly access `Console` will be listed under mod warnings.
 
 ## 3.18.2
 Released 09 January 2023 for Stardew Valley 1.5.6 or later.

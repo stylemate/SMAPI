@@ -80,12 +80,16 @@ namespace StardewModdingAPI.Metadata
             yield return new EventFinder(typeof(ISpecializedEvents).FullName!, new[] { nameof(ISpecializedEvents.UnvalidatedUpdateTicked), nameof(ISpecializedEvents.UnvalidatedUpdateTicking) }, InstructionHandleResult.DetectedUnvalidatedUpdateTick);
 
             /****
+            ** detect direct console access
+            ****/
+            yield return new TypeFinder(typeof(System.Console).FullName!, InstructionHandleResult.DetectedConsoleAccess);
+
+            /****
             ** detect paranoid issues
             ****/
             if (paranoidMode)
             {
                 // filesystem access
-                yield return new TypeFinder(typeof(System.Console).FullName!, InstructionHandleResult.DetectedConsoleAccess);
                 yield return new TypeFinder(
                     new[]
                     {
