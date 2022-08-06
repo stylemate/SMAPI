@@ -14,7 +14,6 @@ using StardewValley.Buildings;
 using StardewValley.GameData.Buildings;
 using StardewValley.GameData.FruitTrees;
 using StardewValley.GameData.LocationContexts;
-using StardewValley.GameData.Movies;
 using StardewValley.GameData.Tools;
 using StardewValley.GameData.Weapons;
 using StardewValley.GameData.WildTrees;
@@ -304,9 +303,7 @@ namespace StardewModdingAPI.Metadata
                     return true;
 
                 case "data/concessiontastes": // MovieTheater.GetConcessionTasteForCharacter
-                    this.Reflection
-                        .GetField<List<ConcessionTaste>>(typeof(MovieTheater), "_concessionTastes")
-                        .SetValue(content.Load<List<ConcessionTaste>>(key));
+                    MovieTheater.ClearCachedConcessionTastes();
                     return true;
 
                 case "data/cookingrecipes": // CraftingRecipe.InitShared
@@ -468,8 +465,7 @@ namespace StardewModdingAPI.Metadata
 
             foreach (Farmer player in players)
             {
-                var recolorOffsets = this.Reflection.GetField<Dictionary<string, Dictionary<int, List<int>>>?>(typeof(FarmerRenderer), "_recolorOffsets").GetValue();
-                recolorOffsets?.Clear();
+                FarmerRenderer.recolorOffsets?.Clear();
 
                 player.FarmerRenderer.MarkSpriteDirty();
             }
