@@ -60,7 +60,7 @@ namespace StardewModdingAPI.Mods.ConsoleCommands.Framework.Commands.Player
 
             // add to inventory
             Game1.player.addItemByMenuIfNecessary(match.Item);
-            monitor.Log($"OK, added {match.Name} (ID: {match.QualifiedItemID}) to your inventory.", LogLevel.Info);
+            monitor.Log($"OK, added {match.Name} (ID: {match.QualifiedItemId}) to your inventory.", LogLevel.Info);
         }
 
 
@@ -123,8 +123,8 @@ namespace StardewModdingAPI.Mods.ConsoleCommands.Framework.Commands.Player
         {
             SearchableItem? item = this.Items
                 .GetAll()
-                .Where(p => string.Equals(p.QualifiedItemID, id, StringComparison.OrdinalIgnoreCase))
-                .OrderByDescending(p => p.QualifiedItemID == id) // prefer case-sensitive match
+                .Where(p => string.Equals(p.QualifiedItemId, id, StringComparison.OrdinalIgnoreCase))
+                .OrderByDescending(p => p.QualifiedItemId == id) // prefer case-sensitive match
                 .FirstOrDefault();
 
             if (item == null)
@@ -157,7 +157,7 @@ namespace StardewModdingAPI.Mods.ConsoleCommands.Framework.Commands.Player
             string options = this.GetTableString(
                 data: matches,
                 header: new[] { "type", "name", "command" },
-                getRow: item => new[] { item.Type.ToString(), item.DisplayName, $"player_add {item.QualifiedItemID}" }
+                getRow: item => new[] { item.Type.ToString(), item.DisplayName, $"player_add {item.QualifiedItemId}" }
             );
             monitor.Log($"There's no item with name '{name}'. Do you mean one of these?\n\n{options}", LogLevel.Info);
             return null;

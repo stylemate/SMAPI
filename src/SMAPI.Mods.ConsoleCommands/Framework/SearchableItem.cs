@@ -1,5 +1,6 @@
 using System;
 using StardewValley;
+using StardewValley.ItemTypeDefinitions;
 
 namespace StardewModdingAPI.Mods.ConsoleCommands.Framework
 {
@@ -9,7 +10,7 @@ namespace StardewModdingAPI.Mods.ConsoleCommands.Framework
         /*********
         ** Accessors
         *********/
-        /// <summary>The <see cref="ItemDataDefinition.Identifier"/> value for the item type.</summary>
+        /// <summary>The <see cref="IItemDataDefinition.Identifier"/> value for the item type.</summary>
         public string Type { get; }
 
         /// <summary>A sample item instance.</summary>
@@ -19,10 +20,10 @@ namespace StardewModdingAPI.Mods.ConsoleCommands.Framework
         public Func<Item> CreateItem { get; }
 
         /// <summary>The unqualified item ID.</summary>
-        public string ID { get; }
+        public string Id { get; }
 
         /// <summary>The qualified item ID.</summary>
-        public string QualifiedItemID { get; }
+        public string QualifiedItemId { get; }
 
         /// <summary>The item's default name.</summary>
         public string Name => this.Item.Name;
@@ -41,8 +42,8 @@ namespace StardewModdingAPI.Mods.ConsoleCommands.Framework
         public SearchableItem(string type, string id, Func<SearchableItem, Item> createItem)
         {
             this.Type = type;
-            this.ID = id;
-            this.QualifiedItemID = this.Type + this.ID;
+            this.Id = id;
+            this.QualifiedItemId = this.Type + this.Id;
             this.CreateItem = () => createItem(this);
             this.Item = createItem(this);
         }
