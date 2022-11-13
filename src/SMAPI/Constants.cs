@@ -68,10 +68,10 @@ namespace StardewModdingAPI
         public static ISemanticVersion ApiVersion { get; } = new Toolkit.SemanticVersion(EarlyConstants.RawApiVersion);
 
         /// <summary>The minimum supported version of Stardew Valley.</summary>
-        public static ISemanticVersion MinimumGameVersion { get; } = new GameVersion("1.5.6");
+        public static ISemanticVersion MinimumGameVersion { get; } = new GameVersion("1.6.0");
 
         /// <summary>The maximum supported version of Stardew Valley, if any.</summary>
-        public static ISemanticVersion? MaximumGameVersion { get; } = new GameVersion("1.5.6");
+        public static ISemanticVersion? MaximumGameVersion { get; } = null;
 
         /// <summary>The target game platform.</summary>
         public static GamePlatform TargetPlatform { get; } = EarlyConstants.Platform;
