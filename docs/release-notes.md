@@ -1,22 +1,18 @@
 ← [README](README.md)
 
 # Release notes
-<!--
-## 4.0.0
-* The installer no longer supports updating from SMAPI 2.11.3 or earlier (released in 2019).  
-  _If needed, you can update to SMAPI 3.16.0 first and then install the latest version._
--->
-
 ## Upcoming release for Stardew Valley 1.6
 * For players:
   * Updated for Stardew Valley 1.6.
+  * Improved performance.
   * Rewrote `player_add` to support the game's new custom items system.
   * Removed `list_item_types` (no longer needed) and `player_setimmunity` (broke in 1.6 and rarely used).
-  * Removed `player_setimmunity` console command (broke in 1.6 and rarely used).
-  * Improved performance.
+  * Removed support for updating from SMAPI 2.11.3 or earlier (released in 2019).  
+    _If needed, you can update to SMAPI 3.18.0 first and then install the latest version._
 
 * For mod authors:
   * Updated to .NET 6.
+  * Removed all deprecated APIs.
   * SMAPI no longer intercepts output written to the console. Mods which directly access `Console` will be listed under mod warnings.
 
 ## 3.18.2

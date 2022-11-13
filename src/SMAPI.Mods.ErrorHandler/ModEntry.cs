@@ -1,9 +1,6 @@
 using StardewModdingAPI.Events;
 using StardewModdingAPI.Framework;
 using StardewModdingAPI.Internal.Patching;
-#if SMAPI_DEPRECATED
-using StardewModdingAPI.Mods.ErrorHandler.ModPatches;
-#endif
 using StardewModdingAPI.Mods.ErrorHandler.Patches;
 using StardewValley;
 
@@ -36,11 +33,6 @@ namespace StardewModdingAPI.Mods.ErrorHandler
                 new NpcPatcher(monitorForGame),
                 new SaveGamePatcher(this.Monitor, this.OnSaveContentRemoved),
                 new SpriteBatchPatcher()
-
-#if SMAPI_DEPRECATED
-                // mod patches
-                , new PyTkPatcher(helper.ModRegistry)
-#endif
             );
 
             // hook events

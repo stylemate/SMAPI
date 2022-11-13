@@ -63,7 +63,6 @@ SMAPI uses a small number of conditional compilation constants, which you can se
 flag | purpose
 ---- | -------
 `SMAPI_FOR_WINDOWS` | Whether SMAPI is being compiled for Windows; if not set, the code assumes Linux/macOS. Set automatically in `common.targets`.
-`SMAPI_DEPRECATED`  | Whether to include deprecated code in the build.
 
 ## Compile from source code
 ### Main project
