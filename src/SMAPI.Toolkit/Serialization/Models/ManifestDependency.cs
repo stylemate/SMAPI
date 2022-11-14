@@ -54,7 +54,7 @@ namespace StardewModdingAPI.Toolkit.Serialization.Models
         *********/
         /// <summary>Normalize whitespace in a raw string.</summary>
         /// <param name="input">The input to strip.</param>
-#if NET5_0_OR_GREATER
+#if NET6_0_OR_GREATER
         [return: NotNullIfNotNull("input")]
 #endif
         private string? NormalizeWhitespace(string? input)

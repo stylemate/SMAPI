@@ -117,7 +117,7 @@ namespace StardewModdingAPI.Toolkit.Serialization.Models
         /// <summary>Normalize a manifest field to strip newlines, trim whitespace, and optionally strip square brackets.</summary>
         /// <param name="input">The input to strip.</param>
         /// <param name="replaceSquareBrackets">Whether to replace square brackets with round ones. This is used in the mod name to avoid breaking the log format.</param>
-#if NET5_0_OR_GREATER
+#if NET6_0_OR_GREATER
         [return: NotNullIfNotNull("input")]
 #endif
         private string? NormalizeField(string? input, bool replaceSquareBrackets = false)

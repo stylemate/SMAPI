@@ -44,7 +44,7 @@ namespace StardewModdingAPI.Toolkit.Serialization
         /// <exception cref="ArgumentException">The given <paramref name="fullPath"/> is empty or invalid.</exception>
         /// <exception cref="JsonReaderException">The file contains invalid JSON.</exception>
         public bool ReadJsonFileIfExists<TModel>(string fullPath,
-#if NET5_0_OR_GREATER
+#if NET6_0_OR_GREATER
             [NotNullWhen(true)]
 #endif
             out TModel? result

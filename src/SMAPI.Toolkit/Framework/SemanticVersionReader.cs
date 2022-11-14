@@ -106,7 +106,7 @@ namespace StardewModdingAPI.Toolkit.Framework
         /// <param name="index">The index of the next character to read.</param>
         /// <param name="tag">The parsed tag.</param>
         private static bool TryParseTag(char[] raw, ref int index,
-#if NET5_0_OR_GREATER
+#if NET6_0_OR_GREATER
             [NotNullWhen(true)]
 #endif
             out string? tag

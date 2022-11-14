@@ -119,7 +119,7 @@ namespace StardewModdingAPI.Toolkit
         }
 
         /// <inheritdoc />
-#if NET5_0_OR_GREATER
+#if NET6_0_OR_GREATER
         [MemberNotNullWhen(true, nameof(SemanticVersion.PrereleaseTag))]
 #endif
         public bool IsPrerelease()
@@ -202,7 +202,7 @@ namespace StardewModdingAPI.Toolkit
         /// <param name="parsed">The parsed representation.</param>
         /// <returns>Returns whether parsing the version succeeded.</returns>
         public static bool TryParse(string? version,
-#if NET5_0_OR_GREATER
+#if NET6_0_OR_GREATER
             [NotNullWhen(true)]
 #endif
             out ISemanticVersion? parsed
@@ -217,7 +217,7 @@ namespace StardewModdingAPI.Toolkit
         /// <param name="parsed">The parsed representation.</param>
         /// <returns>Returns whether parsing the version succeeded.</returns>
         public static bool TryParse(string? version, bool allowNonStandard,
-#if NET5_0_OR_GREATER
+#if NET6_0_OR_GREATER
             [NotNullWhen(true)]
 #endif
             out ISemanticVersion? parsed

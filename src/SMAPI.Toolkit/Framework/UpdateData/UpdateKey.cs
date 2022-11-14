@@ -22,7 +22,7 @@ namespace StardewModdingAPI.Toolkit.Framework.UpdateData
         public string? Subkey { get; }
 
         /// <summary>Whether the update key seems to be valid.</summary>
-#if NET5_0_OR_GREATER
+#if NET6_0_OR_GREATER
         [MemberNotNullWhen(true, nameof(UpdateKey.ID))]
 #endif
         public bool LooksValid { get; }

@@ -85,7 +85,7 @@ foreach ($folder in $folders) {
     foreach ($modName in $bundleModNames) {
         echo "Compiling $modName for $folder..."
         echo "-------------------------------------------------"
-        dotnet publish src/SMAPI.Mods.$modName --configuration $buildConfig -v minimal --runtime "$runtime" -p:OS="$msbuildPlatformName" -p:GamePath="$gamePath" -p:CopyToGameFolder="false"
+        dotnet publish src/SMAPI.Mods.$modName --configuration $buildConfig -v minimal --runtime "$runtime" -p:OS="$msbuildPlatformName" -p:GamePath="$gamePath" -p:CopyToGameFolder="false" --self-contained false
         echo ""
         echo ""
     }

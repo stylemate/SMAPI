@@ -2,7 +2,7 @@
   <PropertyGroup>
     <RootNamespace>StardewModdingAPI.Installer</RootNamespace>
     <Description>The SMAPI installer for players.</Description>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <OutputType>Exe</OutputType>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>

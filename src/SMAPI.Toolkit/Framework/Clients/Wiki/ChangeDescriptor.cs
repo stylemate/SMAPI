@@ -48,7 +48,7 @@ namespace StardewModdingAPI.Toolkit.Framework.Clients.Wiki
         /// <summary>Apply the change descriptors to a comma-delimited field.</summary>
         /// <param name="rawField">The raw field text.</param>
         /// <returns>Returns the modified field.</returns>
-#if NET5_0_OR_GREATER
+#if NET6_0_OR_GREATER
         [return: NotNullIfNotNull("rawField")]
 #endif
         public string? ApplyToCopy(string? rawField)

@@ -50,7 +50,7 @@ namespace StardewModdingAPI.Toolkit.Utilities
         /// <summary>Normalize an asset name to match how MonoGame's content APIs would normalize and cache it.</summary>
         /// <param name="assetName">The asset name to normalize.</param>
         [Pure]
-#if NET5_0_OR_GREATER
+#if NET6_0_OR_GREATER
         [return: NotNullIfNotNull("assetName")]
 #endif
         public static string? NormalizeAssetName(string? assetName)
@@ -66,7 +66,7 @@ namespace StardewModdingAPI.Toolkit.Utilities
         /// <param name="path">The file path to normalize.</param>
         /// <remarks>This should only be used for file paths. For asset names, use <see cref="NormalizeAssetName"/> instead.</remarks>
         [Pure]
-#if NET5_0_OR_GREATER
+#if NET6_0_OR_GREATER
         [return: NotNullIfNotNull("path")]
 #endif
         public static string? NormalizePath(string? path)
@@ -105,7 +105,7 @@ namespace StardewModdingAPI.Toolkit.Utilities
         [Pure]
         public static string GetRelativePath(string sourceDir, string targetPath)
         {
-#if NET5_0
+#if NET6_0_OR_GREATER
             return Path.GetRelativePath(sourceDir, targetPath);
 #else
             // NOTE:

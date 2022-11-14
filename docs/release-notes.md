@@ -11,6 +11,9 @@
 * For players:
   * Updated for Stardew Valley 1.6.
 
+* For mod authors:
+  * Updated to .NET 6.
+
 ## 3.18.2
 Released 09 January 2023 for Stardew Valley 1.5.6 or later.
 

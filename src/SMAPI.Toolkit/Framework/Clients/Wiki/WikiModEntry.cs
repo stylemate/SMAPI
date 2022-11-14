@@ -51,7 +51,7 @@ namespace StardewModdingAPI.Toolkit.Framework.Clients.Wiki
         public WikiCompatibilityInfo? BetaCompatibility { get; }
 
         /// <summary>Whether a Stardew Valley or SMAPI beta which affects mod compatibility is in progress. If this is true, <see cref="BetaCompatibility"/> should be used for beta versions of SMAPI instead of <see cref="Compatibility"/>.</summary>
-#if NET5_0_OR_GREATER
+#if NET6_0_OR_GREATER
         [MemberNotNullWhen(true, nameof(WikiModEntry.BetaCompatibility))]
 #endif
         public bool HasBetaInfo => this.BetaCompatibility != null;

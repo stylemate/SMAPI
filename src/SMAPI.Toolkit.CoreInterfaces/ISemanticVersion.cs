@@ -29,7 +29,7 @@ namespace StardewModdingAPI
         ** Accessors
         *********/
         /// <summary>Whether this is a prerelease version.</summary>
-#if NET5_0_OR_GREATER
+#if NET6_0_OR_GREATER
         [MemberNotNullWhen(true, nameof(ISemanticVersion.PrereleaseTag))]
 #endif
         bool IsPrerelease();
