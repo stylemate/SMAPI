@@ -63,13 +63,13 @@ namespace StardewModdingAPI.Framework
             return task;
         }
 
-        /// <summary>A hook invoked when creating a new save slot, after the game has added the location instances but before it fully initializes them.</summary>
+        /// <inheritdoc />
         public override void CreatedInitialLocations()
         {
             this.OnStageChanged(LoadStage.CreatedInitialLocations);
         }
 
-        /// <summary>A hook invoked when loading a save slot, after the game has added the location instances but before it restores their save data. Not applicable when connecting to a multiplayer host.</summary>
+        /// <inheritdoc />
         public override void SaveAddedLocations()
         {
             this.OnStageChanged(LoadStage.SaveAddedLocations);
