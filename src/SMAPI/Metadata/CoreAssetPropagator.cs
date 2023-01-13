@@ -19,6 +19,7 @@ using StardewValley.GameData.Weapons;
 using StardewValley.GameData.WildTrees;
 using StardewValley.Locations;
 using StardewValley.TerrainFeatures;
+using StardewValley.WorldMaps;
 using xTile;
 
 namespace StardewModdingAPI.Metadata
@@ -280,16 +281,16 @@ namespace StardewModdingAPI.Metadata
                     Game1.CueModification.OnStartup(); // reload file and reapply changes
                     return true;
 
-                case "data/boots": // BootsDataDefinition
-                    ItemRegistry.ResetCache();
-                    return true;
-
                 case "data/bigcraftablesinformation": // Game1.LoadContent
                     Game1.bigCraftablesInformation = content.Load<Dictionary<string, string>>(key);
                     ItemRegistry.ResetCache();
                     return true;
 
-                case "data/buildingsdata": // Game1.LoadContent
+                case "data/boots": // BootsDataDefinition
+                    ItemRegistry.ResetCache();
+                    return true;
+
+                case "data/buildings": // Game1.LoadContent
                     Game1.buildingsData = content.Load<Dictionary<string, BuildingData>>(key);
                     return true;
 
@@ -357,7 +358,7 @@ namespace StardewModdingAPI.Metadata
                     ItemRegistry.ResetCache();
                     return true;
 
-                case "data/tooldata": // Game1.LoadContent
+                case "data/tools": // Game1.LoadContent
                     Game1.toolData = content.Load<Dictionary<string, ToolData>>(key);
                     ItemRegistry.ResetCache();
                     return true;
@@ -370,6 +371,10 @@ namespace StardewModdingAPI.Metadata
                 case "data/wildtrees": // Tree
                     this.Reflection.GetField<Dictionary<string, WildTreeData>?>(typeof(Tree), "_WildTreeData").SetValue(null);
                     this.Reflection.GetField<Dictionary<string, string>?>(typeof(Tree), "_WildTreeSeedLookup").SetValue(null);
+                    return true;
+
+                case "data/worldmap": // WorldMapManager
+                    WorldMapManager.ReloadData();
                     return true;
 
                 /****
